@@ -1,0 +1,54 @@
+﻿@model mswebtechAssignment1.Models.BPMeasurement
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BPMeasurement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Systolic" class="control-label"></label>
+                <input asp-for="Systolic" class="form-control" />
+                <span asp-validation-for="Systolic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diastolic" class="control-label"></label>
+                <input asp-for="Diastolic" class="form-control" />
+                <span asp-validation-for="Diastolic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTaken" class="control-label"></label>
+                <input asp-for="DateTaken" class="form-control" />
+                <span asp-validation-for="DateTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position" class="control-label"></label>
+                <select asp-for="Position" class="form-control" />
+                <option value="Sitting">Sitting</option>
+                <option value="Standing">Standing</option>
+                <option value="Lying down">Lying down</option>
+                </select>
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
